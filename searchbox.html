@@ -14,8 +14,10 @@
       this.render();
     },
     render: function(){
-      // Compile the template using underscore
-      var template =_.template( $("#search_template").html(), {});
+      // Pass variables in using Underscore.js Template
+      var variables = { search_label: "My Search" };
+      // Compile the template using uderscore
+      var template = _.template( $("#search_template").html(), variables );
       // Load the compiled HTML into the Backbone "el"
       this.$el.html( template );
     },
