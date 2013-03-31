@@ -35,4 +35,23 @@ What is a Model
   How to set model defaults
     default goes before the initialize
     just make an object with default and the keys assignment
+    
+  Not just get and set 
+  Learn to manipulate!
+    simply create a method that sets to 'this' so that it looks for the variable being set.
+    
+    Examples for another item
+    
+    given:
+    
+    adopt: function( newChildName ){
+      this.set({ child: newChildsName });
+    }
+    
+    Another may be
+    
+    getOld: function( newAge ){
+      this.set({ age: newAge });
+    }
+  
   

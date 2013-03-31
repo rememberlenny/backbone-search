@@ -8,13 +8,14 @@
       },
       initialize: function(){
         alert("Welcome to this world");
+      },
+      adopt: function( newChildsName ){
+        this.set({ child: newChildsName });
       }
     });
 
     var person = new Person({ name: "Thomas", age: 67, child: 'Ryan'});
-
-    var age = person.get("age"); // 67
-    var name = person.get("name"); // Thomas
-    var child = person.get("child"); // Ryan
+    person.adopt('John Resig');
+    var child = person.get("child"); // John Resig
   </script>
 </html>
