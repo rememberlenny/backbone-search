@@ -34,4 +34,5 @@ What is a Model
   
   How to set model defaults
     default goes before the initialize
+    just make an object with default and the keys assignment
   
