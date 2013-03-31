@@ -31,3 +31,7 @@ What is a Model
   model.get()
   
   opposed to model.set()
+  
+  How to set model defaults
+    default goes before the initialize
+  
