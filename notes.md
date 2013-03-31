@@ -54,4 +54,5 @@ What is a Model
       this.set({ age: newAge });
     }
   
-  
+  Next is listening for changes.
+    models can have listeners bound to them to detect changes to their values
