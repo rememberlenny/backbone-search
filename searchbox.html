@@ -1,0 +1,33 @@
+<script type="text/template" id="search_template">
+  <!-- Access template variables with <%= %> -->
+  <label><%= serach_label %></label>
+  <input type="text" id="search_input" />
+  <input type="button" id="search_button" value="Search"/>
+</script>
+
+
+<div id="search_container"></div>
+
+<script type="text/javascript">
+  SearchView = Backbone.View.extend({
+    initialize: function(){
+      this.render();
+    },
+    render: function(){
+      // Compile the template using underscore
+      var template =_.template( $("#search_template").html(), {});
+      // Load the compiled HTML into the Backbone "el"
+      this.$el.html( template );
+    },
+    events: {
+      "click input [type=button]": "doSearch"
+    },
+    doSearch: function( event ){
+      // Button clicked, you can access the element that was clicked with even.currentTarget
+      alert("Search for " + $("#search_input").value());
+    }  
+  });
+  // The initialize function is always called when instantiating a Backbone View
+  // Consider it the constructor of the class.
+  var search_view = new SearchView({ el:$("#search_container") });
+</script>
