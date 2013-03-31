@@ -1,7 +1,14 @@
-Person = Backbone.Model.extend({
-initialize: function(){
-alert("Welcome to this world");
-}
-});
+<html>
+  <script type="text/javascript">
+    Person = Backbone.Model.extend({
+    initialize: function(){
+      alert("Welcome to this world");
+    }
+  });
 
-var person = new Person;
+  var person = new Person({ name: "Thomas", age: 67});
+  // or we can set afterwards, these operations are equivelent
+  var person = new Person();
+  person.set({ name: "Thomas", age: 67 });
+  </script>
+</html>

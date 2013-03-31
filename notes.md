@@ -17,7 +17,17 @@ Using Template variables
 <%= %> use this thing to access template variables
 
 What is a Model
-  Models are the heart of any JavaScript application, containing the interactive data as well as a large part of the logic surrounding it: conversions, validations, compute red properties, and access control.
+  Models are the heart of any JavaScript application, containing the interactive data as well as a large part of the logic surrounding it: conversions, validati
+  ons, compute red properties, and access control.
   
   
+  initialize() is triggered whenver a new instance of a model is created. 
   
+  
+  Passing javascript objects to constructors is the same as calling model.set().
+  
+  Retreiving models
+  
+  model.get()
+  
+  opposed to model.set()
