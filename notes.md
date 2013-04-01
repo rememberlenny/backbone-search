@@ -67,4 +67,55 @@ What is a Model
       email: ''
     }
   });
+  var user = new Usermodel();
+  // Notice that we haven't set an 'id'
+  var userDetails = {
+    name: 'Lenny',
+    email: 'lkbgift@gmail.com'  
+  };
+  // Because we have not set a 'id' the server will call
+  // POST /user with a payload of {name:'Lenny', email:'lkbgift@gmail.com'}
+  //The server should save the data and return a response containing the new 'id'
+  
+  user.save(userDetails, {
+    success: function (user){
+      alert(user.toJSON());
+    }
+  })
+  
+  
+  Getting models
+  
+  use FETCH
+  
+  // Here we have set the 'id' of the model
+  var user = new Usermodel({id: 1});
+  user.fetch({
+    success: function (user) {
+      alert(user.toJSON());
+    }
+  })
+  
+  Updating the model
+  
+  use SAVE
+  
+  // Here we have set the 'id' of the model
+  var user = new Usermodel ({
+    id: 1,
+    name: 'Lenny',
+    email: 'lkbgift@gmail.com'
+  });
     
+  // Let's change the name and update the server
+  // Because there is 'id' present, Backbone.js will fire
+  // PUT /user/1 with a payload of {name: 'Kiyoshi', email: 'lkbgift@gmail.com'}  
+  user.save({name: 'Kiyoshi'}, {
+    success: function (model) {
+      alert(user.toJSON());
+    }
+  });
+  
+  Deleting a model
+  
+  Use DESTROY
