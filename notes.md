@@ -56,3 +56,15 @@ What is a Model
   
   Next is listening for changes.
     models can have listeners bound to them to detect changes to their values
+    
+  SQL table of Users with columns id, name, email would be able tyo access via a RESTful URL /user
+  model would look like
+  
+  var UserModel = Backbone.Model.extend({
+    urlRoot: '/user',
+    defaults: {
+      name: '',
+      email: ''
+    }
+  });
+    
