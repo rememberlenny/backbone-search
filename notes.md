@@ -119,3 +119,58 @@ What is a Model
   Deleting a model
   
   Use DESTROY
+  
+  // Here we have set the 'id' of the model
+  var user = new Usermodel ({
+    id: 1,
+    name: 'Lenny',
+    email: 'lkbgift@gmail.com'
+  });
+  
+  //Because there is 'id' present, Backbone.js will fire
+  // DELETE /user/1
+  user.destroy({
+    success: function () {
+      alert('Destroyed');
+    }
+  });
+  
+Tips and tricks
+
+Get all the current attributes
+
+.attributes
+
+var person = new Person({ name: "Lenny", age: 23});
+var attributes = person.toJSON(); // { name: "Lenny", age: 67}
+
+/* This simply returns a copy of the current atributes */
+
+var attributes = person.attributes;
+
+/* The line above gives a driect reference to the attributes and you should be careful when playing with it. Best practise would suggest that you use .set() to edit attributes of a model to take advantage of backbone listeners. */
+
+Validate data before you set or save it
+
+Person = Backbone.Model.extend({
+  // If you return a string from the validate function,
+  // Backbone will throw an error
+  validate: function( attributes ){
+    if( attributes.age < 0 && attributes.name != "Dr Manhatten" ){
+      return "You can't be negative years old";
+    }
+  },
+  intialize: function(){ 
+    alert("Welcome to this world");
+    this.bind("error", function(model, error) {
+      // We have received an error, log it, alert or forget it
+      alert( error );
+    });
+  }
+});
+var person = new Person;
+person.set({ name: "Mary Poppins", age: -1 });
+// Will trigger an alert outputting the error
+
+var person = new Person;
+person.set({ name: "Dr. Manhatten", age: -1 });
