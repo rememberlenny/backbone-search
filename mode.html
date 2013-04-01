@@ -1,0 +1,51 @@
+Model: singular
+Collection: multiple
+
+model example
+
+var Song = Backbone.Model.extend({
+    initialize: function(){
+      console.log("Music is the answer");
+    }
+});
+
+var Album = Backbone.Collection.extend({
+  model: Song
+});
+
+another example
+
+var Message = Backbone.Model.extend({
+    initialize: function(){
+      console.log("Message ready");
+    }
+});
+
+var MessageList = Backbone.Collection.extend({
+  model: Message
+});
+
+Building a collection
+
+var Song = Backbone.Model.extend({
+  defaults: {
+    name: "Not specified",
+    artist: "Not specified"
+  },
+  initialize: function(){
+    console.log("Music is the answer");
+  }
+});
+
+var Album = Backbone.Collection.extend({
+  model: Song
+})
+
+var song1 = new Song({ name: "Geeks were right", artist: "The Faint"});
+var song2 = new Song({ name: "We Up", artist: "50 Cent"});
+
+var myAlbum = new Album([ song1, song2 ]);
+console.log( myAlbum.models );
+
+// using the .models method outputs the Collections models
+
